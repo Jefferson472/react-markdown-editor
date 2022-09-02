@@ -1,14 +1,19 @@
-import styled, { css } from 'styled-components/macro'
+import styled from 'styled-components'
 import { Sidebar } from 'pages/sidebar'
 import { Content } from 'pages/content'
 
 function App () {
   return (
-    <main className='main'>
+    <Main>
       <Sidebar />
       <Content />
-    </main>
+    </Main>
   )
 }
+
+const Main = styled.main`
+  display: flex;
+  height: 1024px;
+`
 
 export { App }

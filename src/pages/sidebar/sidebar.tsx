@@ -33,10 +33,9 @@ function Sidebar () {
 }
 
 const Aside = styled.aside`
-  position: absolute;
+  position: relative;
   background-color: ${theme.colors.black};
   color: ${theme.colors.white};
-  height: 1024px;
   width: 332px;
   font-size: 16px;
 
@@ -70,7 +69,7 @@ const Aside = styled.aside`
     position: relative;
     height: 21px;
     width: 268px;
-    margin: 56px auto 0;
+    margin: 66px auto 0;
 
     div {
       position: absolute;
@@ -108,7 +107,6 @@ const Aside = styled.aside`
 
   .files {
     margin: 32px auto 0;
-    height: 100%;
     width: 268px;
 
     font-weight: 400;
