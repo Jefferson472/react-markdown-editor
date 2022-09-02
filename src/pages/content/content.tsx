@@ -4,18 +4,18 @@ import { theme } from 'resources/themes'
 export function Content () {
   return (
     <Main>
-      <div className="title">
+      <div className='title'>
         <img src='/file-text-load.png' alt='File' />
         <p>File Name</p>
       </div>
 
-      <div className="editor">
-        <div className="input">
+      <div className='editor'>
+        <div className='input'>
           <p>## Bootcamp Brainn Co.</p>
           <p>Lorem ipsum dolor sit amet simet</p>
         </div>
         <span />
-        <div className="output">
+        <div className='output'>
           <p>Bootcamp Brainn Co.</p>
           <p>Lorem ipsum dolor sit amet simet</p>
         </div>
