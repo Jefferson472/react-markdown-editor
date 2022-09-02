@@ -10,3 +10,5 @@ export const theme: DefaultTheme = {
     primaryDark: '#18A1B5',
   },
 }
+
+export {}
