@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components/macro";
-import { FileActiveUrl } from "pages/components/icons";
+import styled, { css } from 'styled-components/macro'
+import { FileActiveUrl } from 'pages/components/icons'
 
 const contentPadding = '24px'
 export const ContentWrapper = styled.div`
@@ -9,14 +9,14 @@ export const ContentWrapper = styled.div`
     flex-wrap: wrap;
     padding: ${contentPadding};
   `}
-`;
+`
 
 const headerHeight = '30px'
 export const Header = styled.div`
   align-items: center;
   display: flex;
   height: ${headerHeight};
-`;
+`
 
 export const Input = styled.input`
   background: url(${FileActiveUrl}) left calc(50% - 1px) no-repeat;
@@ -29,14 +29,14 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
-`;
+`
 
 export const ContentSection = styled.div`
   display: flex;
   align-items: center;
   height: calc(100vh - ${headerHeight} - (${contentPadding} * 2));
   justify-content: space-between;
-`;
+`
 
 export const Textarea = styled.textarea`
   background: transparent;
@@ -49,7 +49,7 @@ export const Textarea = styled.textarea`
   &:focus {
     outline: none;
   }
-`;
+`
 
 export const Article = styled.article`
   ${({ theme }) => css`
@@ -74,4 +74,4 @@ export const Article = styled.article`
       margin-top: 0;
     }
   `}
-`;
+`

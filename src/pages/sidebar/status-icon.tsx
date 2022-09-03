@@ -1,13 +1,13 @@
-import styled, { keyframes } from "styled-components/macro";
-import { Status } from "resources/files/types";
-import * as icon from "pages/components/icons";
+import styled, { keyframes } from 'styled-components/macro'
+import { Status } from 'resources/files/types'
+import * as icon from 'pages/components/icons'
 
 export type StatusIconProps = {
   status: Status;
   className?: string;
 };
 
-export function StatusIcon({ status = 'saved', className }: StatusIconProps) {
+export function StatusIcon ({ status = 'saved', className }: StatusIconProps) {
   const Comp = {
     saving: Loading,
     saved: icon.Check,
