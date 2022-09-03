@@ -1,7 +1,17 @@
-// import styled, { css } from 'styled-components/macro'
+import styled from 'styled-components/macro'
+import { Sidebar } from 'pages/sidebar'
+import { Content } from 'pages/content'
 
-function App () {
-  return <></>
+export function App () {
+  return (
+    <Main>
+      <Sidebar />
+      <Content />
+    </Main>
+  )
 }
 
-export { App }
+const Main = styled.main`
+  display: flex;
+  height: 100vh;
+`

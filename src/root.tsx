@@ -3,7 +3,7 @@ import { App } from 'app'
 import { theme } from 'resources/themes'
 import 'normalize.css'
 
-function Root () {
+export function Root () {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -13,17 +13,15 @@ function Root () {
 }
 
 const GlobalStyle = createGlobalStyle`
-    * {
-        box-sizing: border-box;
-    }
+  * {
+      box-sizing: border-box;
+  }
 
-    html {
-        font-size: 62.5%;
-    }   
+  html {
+      font-size: 62.5%;
+  }   
 
-    body {
-        font-family: 'DM Sans', sans-serif;
-    }
+  body {
+      font-family: 'DM Sans', sans-serif;
+  }
 `
-
-export { Root }
