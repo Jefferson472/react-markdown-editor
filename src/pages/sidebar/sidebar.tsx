@@ -1,144 +1,60 @@
-import { theme } from 'resources/themes'
-import styled from 'styled-components'
-import { Buttons } from 'pages/components/Buttons'
+import { File } from 'resources/files/types'
+import markeeLogo from './markee-logo.png'
+import * as icon from 'pages/components/icons'
+import * as S from './sidebar-styles'
 
-function Sidebar () {
+const files: File[] = [
+  {
+    id: '0',
+    name: 'README.md',
+    content: 'Conteúdo do README',
+    active: false,
+    status: 'saved',
+  },
+  {
+    id: '1',
+    name: 'CONTRIBUTING.md',
+    content: 'Conteúdo do Contributing',
+    active: true,
+    status: 'editing',
+  },
+]
+
+export function Sidebar () {
   return (
-    <Aside>
-      <div className='logo'>
-        <img src='/logo192.png' alt='Logo da Página' />
-        <p>markee<span>.</span></p>
-      </div>
+    <S.Aside>
+      <header>
+        <S.H1>
+          <S.LogoLink href='/'>
+            <S.Img src={markeeLogo} alt='Markee.' />
+          </S.LogoLink>
+        </S.H1>
+      </header>
 
-      <div className='line'>
-        <div />
+      <S.H2>
         <span>Arquivos</span>
-      </div>
+      </S.H2>
 
-      <div className='button-add'>
-        <Buttons> + Adicionar arquivo </Buttons>
-      </div>
+      <S.Button>
+        <icon.PlusDark /> Adicionar arquivo
+      </S.Button>
 
-      <div className='files'>
-        <div className='file-item'>
-          <div className='file'>
-            <img src='/file-text.png' alt='File' />
-            <p>README.md</p>
-          </div>
-          <img src='/Vector.png' alt='Close' />
-        </div>
-      </div>
-    </Aside>
+      <S.FileList>
+        {files.map(file => (
+          <S.FileListItem key={file.id}>
+            <S.FileItemLink href={`/file/${file.id}`} active={file.active}>
+              {file.name}
+            </S.FileItemLink>
+
+            {file.active && <S.StatusIconStyled status={file.status} />}
+            {!file.active && (
+              <S.RemoveButton title={`Remover o arquivo ${file.name}`}>
+                <S.RemoveIcon />
+              </S.RemoveButton>
+            )}
+          </S.FileListItem>
+        ))}
+      </S.FileList>
+    </S.Aside>
   )
 }
-
-const Aside = styled.aside`
-  position: relative;
-  background-color: ${theme.colors.black};
-  color: ${theme.colors.white};
-  width: 332px;
-  font-size: 16px;
-
-  p {
-    margin: 0
-  }
-
-  .logo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 44px;
-    width: 164px;
-    margin: 45px auto 0;
-    font-weight: 700;
-    font-size: 33.8401px;
-    line-height: 44px;
-
-    img {
-      width: 35.89px;
-      height: 40.29px;
-    }
-
-    span {
-      color: ${theme.colors.primary}
-    }
-  }
-
-  .line {
-    position: relative;
-    height: 21px;
-    width: 268px;
-    margin: 66px auto 0;
-
-    div {
-      position: absolute;
-      top: calc(50% - 1px);
-      border: 1px solid ${theme.colors.primary};
-      width: 100%;
-      z-index: 1;
-    }
-
-    span {
-      position: relative;
-      height: 21px;
-      left: 13.5px;
-      background-color: ${theme.colors.black};
-      padding: 0 6px 0 6px;
-      z-index: 2;
-      line-height: 21px;
-    }
-  }
-
-  .button-add {
-    margin: 24px 0 auto;
-    text-align: center;
-
-    button {
-      height:33.88px;
-      width: 268px;
-      background-color: ${theme.colors.primary};
-      border-radius: 3.38806px;
-
-      font-size: 13.5522px;
-      line-height: 18px;
-    }
-  }
-
-  .files {
-    margin: 32px auto 0;
-    width: 268px;
-
-    font-weight: 400;
-
-    .file-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 37px;
-      padding: 0 15px;
-
-      :hover {
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 6px;
-      }
-    }
-
-    .file {
-      display: flex;
-      align-items: center;
-    }
-
-    .file p {
-      width: 100%;
-      margin-left: 16px;
-    }
-
-    .file-item > span {
-      margin-right: 15px;
-    }
-  }
-`
-
-export { Sidebar }

@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { Sidebar } from 'pages/sidebar'
 import { Content } from 'pages/content'
 
-function App () {
+export function App () {
   return (
     <Main>
       <Sidebar />
@@ -13,7 +13,5 @@ function App () {
 
 const Main = styled.main`
   display: flex;
-  height: 1024px;
+  height: 100vh;
 `
-
-export { App }
