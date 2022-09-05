@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { useState, ChangeEvent, RefObject } from 'react'
 import { marked } from 'marked'
 import * as DOMPurify from 'dompurify'
 import * as S from './content-style'
@@ -19,7 +19,11 @@ import('highlight.js').then((hljs) => {
   })
 })
 
-export function Content () {
+type ContentProps = {
+  inputRef: RefObject<HTMLInputElement>
+}
+
+export function Content ({ inputRef }: ContentProps) {
   const [content, setContent] = useState('')
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -29,7 +33,7 @@ export function Content () {
   return (
     <S.ContentWrapper>
       <S.Header>
-        <S.Input defaultValue='Sem título' />
+        <S.Input defaultValue='Sem título' ref={inputRef} />
       </S.Header>
 
       <S.ContentSection>
