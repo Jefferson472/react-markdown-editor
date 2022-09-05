@@ -5,7 +5,7 @@ import * as S from './content-style'
 import 'highlight.js/styles/github.css'
 
 // função import para carregar o hightlight após o carregamento da página.
-import('highlight.js').then(hljs => {
+import('highlight.js').then((hljs) => {
   const h = hljs.default
 
   marked.setOptions({
@@ -39,9 +39,10 @@ export function Content () {
           onChange={handleChange}
         />
 
-        <S.Article dangerouslySetInnerHTML={
-          { __html: DOMPurify.sanitize(marked.parse(content)) }
-}
+        <S.Article
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(marked.parse(content)),
+          }}
         />
       </S.ContentSection>
     </S.ContentWrapper>
