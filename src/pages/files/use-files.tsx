@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect, ChangeEvent, MouseEvent } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { File } from 'resources/files/types'
+import localforage from 'localforage'
 
 export function useFiles () {
   const inputRef = useRef<HTMLInputElement>(null)
   const [files, setFiles] = useState<File[]>([])
-
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
 
@@ -52,6 +52,25 @@ export function useFiles () {
     return () => clearTimeout(timer)
   }, [files])
 
+  useEffect(() => {
+    localforage.setItem('markee', files)
+  }, [files])
+
+  useEffect(() => {
+    async function getFromStorage () {
+      const files = await localforage.getItem<File[]>('markee')
+
+      if (files) {
+        setFiles(files)
+        return
+      }
+
+      handleCreateNewFile()
+    }
+
+    getFromStorage()
+  }, [])
+
   const handleCreateNewFile = () => {
     inputRef.current?.focus()
 
@@ -93,13 +112,13 @@ export function useFiles () {
       setFiles((files) =>
         files.map((file) => {
           if (file.id === id) {
+            localforage.setItem(file.id, file)
             return {
               ...file,
               content: e.target.value,
               status: 'editing',
             }
           }
-
           return file
         }),
       )
@@ -120,6 +139,7 @@ export function useFiles () {
 
   const handleRemoveFile = (id: string) => {
     setFiles((files) => files.filter((file) => file.id !== id))
+    localforage.removeItem(id)
   }
 
   return {
