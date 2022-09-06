@@ -1,8 +1,10 @@
-import { useState, ChangeEvent, RefObject } from 'react'
+import { ChangeEvent, RefObject } from 'react'
 import { marked } from 'marked'
 import * as DOMPurify from 'dompurify'
-import * as S from './content-style'
 import 'highlight.js/styles/github.css'
+
+import { File } from 'resources/files/types'
+import * as S from './content-style'
 
 // função import para carregar o hightlight após o carregamento da página.
 import('highlight.js').then((hljs) => {
@@ -21,31 +23,42 @@ import('highlight.js').then((hljs) => {
 
 type ContentProps = {
   inputRef: RefObject<HTMLInputElement>
+  file?: File
+  onUpdateFileName: (id: string) => (e: ChangeEvent<HTMLInputElement>) => void
+  onUpdateFileContent: (id: string) => (e: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export function Content ({ inputRef }: ContentProps) {
-  const [content, setContent] = useState('')
-
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value)
+export function Content ({
+  inputRef,
+  file,
+  onUpdateFileName,
+  onUpdateFileContent,
+}: ContentProps) {
+  if (!file) {
+    return null
   }
 
   return (
     <S.ContentWrapper>
       <S.Header>
-        <S.Input defaultValue='Sem título' ref={inputRef} />
+        <S.Input
+          ref={inputRef}
+          value={file.name}
+          onChange={onUpdateFileName(file.id)}
+          autoFocus
+        />
       </S.Header>
 
       <S.ContentSection>
         <S.Textarea
           placeholder='Digite aqui seu markdown'
-          value={content}
-          onChange={handleChange}
+          value={file.content}
+          onChange={onUpdateFileContent(file.id)}
         />
 
         <S.Article
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(marked.parse(content)),
+            __html: DOMPurify.sanitize(marked.parse(file.content)),
           }}
         />
       </S.ContentSection>
