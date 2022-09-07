@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import { Sidebar } from 'pages/sidebar'
 import { Content } from 'pages/content'
 import { useFiles } from 'pages/files/use-files'
+import { MenuLeft } from 'pages/components/icons'
 
 export function App () {
   const {
@@ -35,5 +36,19 @@ export function App () {
 
 const Main = styled.main`
   display: flex;
-  height: 100vh;
+
+  .--active {
+    position: absolute;
+    width: 40%;
+    transition: 0.35s;
+
+    section {
+      display: block;
+    }
+
+    div {
+      background: url(${MenuLeft});
+      margin-right: 10px;
+    }
+  }
 `

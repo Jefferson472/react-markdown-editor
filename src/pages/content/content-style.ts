@@ -8,6 +8,7 @@ export const ContentWrapper = styled.div`
     flex-grow: 5;
     flex-wrap: wrap;
     padding: ${contentPadding};
+    min-width: 70%;
   `}
 `
 
