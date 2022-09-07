@@ -15,6 +15,7 @@ export const Aside = styled.aside`
   
   @media (max-width: 900px) {
     width: 6%;
+    min-width: 50px;
     padding: 0px;
 
     section {
@@ -25,6 +26,7 @@ export const Aside = styled.aside`
 
     div {
       display: block;
+      transition: 0.75s;
     }
   }
   `

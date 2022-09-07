@@ -23,7 +23,7 @@ export function Sidebar ({
     setIsActive(current => !current)
   }
   return (
-    <S.Aside className={isActive ? '--active' : ''} >
+    <S.Aside className={isActive ? '--active' : ''}>
       <S.MenuSandubar onClick={activeMenu} />
       <section>
         <header>

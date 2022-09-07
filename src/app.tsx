@@ -39,8 +39,8 @@ const Main = styled.main`
 
   .--active {
     position: absolute;
-    width: 40%;
-    transition: 0.35s;
+    min-width: 200px;
+    transition: 0.75s;
 
     section {
       display: block;
