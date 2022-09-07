@@ -62,18 +62,24 @@ export function useFiles () {
 
       if (files) {
         setFiles(files)
-        return
+        return null
       }
 
-      handleCreateNewFile()
+      // handleCreateNewFile()
     }
-
     getFromStorage()
   }, [])
 
+  useEffect(() => {
+    const file = files.find(file => file.active === true)
+    if (file) {
+      window.history.pushState(null, '', `/file/${file.id}`)
+    }
+  }, [files])
+
   const handleCreateNewFile = () => {
     inputRef.current?.focus()
-
+    console.log('passou aqui')
     setFiles((files) =>
       files
         .map((file) => ({
@@ -112,7 +118,6 @@ export function useFiles () {
       setFiles((files) =>
         files.map((file) => {
           if (file.id === id) {
-            localforage.setItem(file.id, file)
             return {
               ...file,
               content: e.target.value,
@@ -139,7 +144,6 @@ export function useFiles () {
 
   const handleRemoveFile = (id: string) => {
     setFiles((files) => files.filter((file) => file.id !== id))
-    localforage.removeItem(id)
   }
 
   return {
