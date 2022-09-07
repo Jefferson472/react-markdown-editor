@@ -64,9 +64,8 @@ export function useFiles () {
         setFiles(files)
         return null
       }
-
-      // handleCreateNewFile()
     }
+
     getFromStorage()
   }, [])
 
@@ -79,7 +78,7 @@ export function useFiles () {
 
   const handleCreateNewFile = () => {
     inputRef.current?.focus()
-    console.log('passou aqui')
+
     setFiles((files) =>
       files
         .map((file) => ({
