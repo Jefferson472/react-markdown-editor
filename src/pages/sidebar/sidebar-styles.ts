@@ -4,9 +4,37 @@ import { StatusIcon, StatusIconProps } from './status-icon'
 
 export const Aside = styled.aside`
   background: ${({ theme }) => theme.colors.black};
-  min-width: 332px;
+  width: 100%;
+  height: 100vh;
   max-width: 332px;
   padding: 32px;
+
+  section {
+    height: 100%;
+  }
+  
+  @media (max-width: 900px) {
+    width: 6%;
+    padding: 0px;
+
+    section {
+      display: none;
+      padding: 10px;
+      height: 100%;
+    }
+
+    div {
+      display: block;
+    }
+  }
+  `
+
+export const MenuSandubar = styled.div`
+  display: none;
+  background: url(${icon.Sandubar});
+  width: 25px;
+  height: 25px;
+  margin: 5px auto;
 `
 
 export const H1 = styled.h1`
