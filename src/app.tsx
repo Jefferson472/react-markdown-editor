@@ -36,14 +36,18 @@ export function App () {
 
 const Main = styled.main`
   display: flex;
-
+  max-height: 100vh;
+  
   .--active {
     position: absolute;
     min-width: 200px;
-    transition: 0.75s;
-
+    padding-bottom: 0px;
+    transition: 0.5s;
+    
     section {
-      display: block;
+      visibility: visible;
+      opacity: 1;
+      padding-bottom: 0px;
     }
 
     div {

@@ -8,20 +8,17 @@ export const Aside = styled.aside`
   height: 100vh;
   max-width: 332px;
   padding: 32px;
-
-  section {
-    height: 100%;
-  }
+  transition: 0.5s;
   
   @media (max-width: 900px) {
     width: 6%;
     min-width: 50px;
     padding: 0px;
-
+    
     section {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
       padding: 10px;
-      height: 100%;
     }
 
     div {
