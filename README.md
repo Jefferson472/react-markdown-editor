@@ -1,8 +1,8 @@
 <h1 align="center">
 	<a href="https://fdaciuk.notion.site/Bootcamp-React-js-B-Academy-04beed6c0dda4b79a28709b0f4cf6042">
-	<p align="center">Bootcamp React.js - B. Academy</p>
-        <img src="src\pages\sidebar\markee-logo.png" alt="Alura Challenges">
-    </a>
+	  <p align="center">Bootcamp React.js - B. Academy</p>
+  </a>
+  <a href="https://app-markdown-editor.netlify.app"><img src="src\pages\sidebar\markee-logo.png" alt="Alura Challenges"></a>
 </h1>
 
 <div align="center" id="badges">
@@ -17,7 +17,7 @@ Projeto de Markdown, Single Page Application desenvolvida em React e hospedade n
 
 O projeto foi desedesenvolvido com objetivo de aprendizado de React seguindo as orientações do [Bootcamp React.js - B. Academy](https://fdaciuk.notion.site/Bootcamp-React-js-B-Academy-04beed6c0dda4b79a28709b0f4cf6042).
 
-O projeto está disponível no link: https://app-markdown-editor.netlify.app/
+O projeto está disponível no link: [app-markdown-editor.netlify.app](https://app-markdown-editor.netlify.app)
 
 ---
 ## Requirements
