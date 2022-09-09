@@ -1,6 +1,7 @@
 <h1 align="center">
 	<a href="https://fdaciuk.notion.site/Bootcamp-React-js-B-Academy-04beed6c0dda4b79a28709b0f4cf6042">
-        <p align="center">Bootcamp React.js - B. Academy</p>
+	<p align="center">Bootcamp React.js - B. Academy</p>
+        <img src="src\pages\sidebar\markee-logo.png" alt="Alura Challenges">
     </a>
 </h1>
 
