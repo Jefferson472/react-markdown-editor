@@ -19,6 +19,9 @@ O projeto foi desedesenvolvido com objetivo de aprendizado de React seguindo as 
 
 O projeto está disponível no link: [app-markdown-editor.netlify.app](https://app-markdown-editor.netlify.app)
 
+![image](https://github.com/user-attachments/assets/81b86e8f-00a6-4d1d-8481-9743d23a58b2)
+
+
 ---
 ## Requirements
 - Node
